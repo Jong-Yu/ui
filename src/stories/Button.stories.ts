@@ -19,11 +19,6 @@ const meta = {
       defaultValue: false,
       description: 'Disabled 여부',
     },
-    fullWidth: {
-      control: 'boolean',
-      defaultValue: false,
-      description: '버튼의 너비를 꽉 채울지 여부',
-    },
     children: {
       control: 'text',
       defaultValue: 'Button',
@@ -34,6 +29,10 @@ const meta = {
       options: ['small', 'medium', 'large'],
       defaultValue: 'medium',
       description: '버튼의 크기 정도',
+    },
+    style: {
+      control: 'object',
+      description: '버튼 스타일',
     },
     onClick: { action: 'clicked', description: '버튼 클릭 이벤트' },
   },
@@ -49,6 +48,7 @@ export const Primary: Story = {
     fullWidth: false,
     children: 'Button',
     size: 'medium',
+    style: {},
     onClick: () => {},
   } as ButtonProps,
 };
@@ -77,12 +77,5 @@ export const Disabled: Story = {
   args: {
     children: 'Button',
     disabled: true,
-  },
-};
-
-export const FullWidth: Story = {
-  args: {
-    children: 'Button',
-    fullWidth: true,
   },
 };
