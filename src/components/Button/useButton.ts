@@ -25,9 +25,9 @@ export function useButton(props: ButtonProps) {
     return names.join(' ');
   }, [props]);
   // handler
-  const onClick = () => {
+  const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (props.disabled) return;
-    props.onClick && props.onClick();
+    props.onClick && props.onClick(e);
   };
 
   return {

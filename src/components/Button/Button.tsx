@@ -1,13 +1,13 @@
 import { CSSProperties } from 'react';
-import './button.css';
 import { useButton } from './useButton';
+import './button.css';
 
 export interface ButtonProps {
   primary?: boolean;
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
   children?: React.ReactNode;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   style?: CSSProperties;
 }
 

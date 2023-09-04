@@ -10,28 +10,44 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     value: {
-      control: 'text',
-      defaultValue: '',
-      description: '입력 폼의 값',
       type: { name: 'string', required: false },
+      description: '입력 폼의 값',
+      table: {
+        type: { summary: 'string' },
+      },
+      control: 'text',
     },
     disabled: {
-      control: 'boolean',
-      defaultValue: false,
-      description: '입력 폼 비활성화 여부',
       type: { name: 'boolean', required: false },
+      description: '입력 폼 비활성화 여부',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+      control: 'boolean',
     },
     style: {
-      control: 'object',
-      defaultValue: {},
-      description: '입력 폼 스타일',
       type: { name: 'object', value: {}, required: false },
+      description: '입력 폼 스타일',
+      table: {
+        type: { summary: 'object' },
+      },
+      control: 'object',
     },
     onChange: {
-      action: 'changed',
-      description: '입력 폼 변경 이벤트',
       type: { name: 'function', required: false },
+      description: '입력 폼 변경 이벤트',
+      table: {
+        type: { summary: 'function' },
+      },
+      action: 'onChange',
     },
+  },
+  args: {
+    value: undefined,
+    disabled: undefined,
+    style: undefined,
+    onChange: undefined,
   },
 } satisfies Meta<typeof TextField>;
 
@@ -54,8 +70,6 @@ export const UseValue: Story = {
 export const Disabled: Story = {
   args: {
     disabled: true,
-    style: {},
     value: 'disabled',
-    onChange: () => {},
   },
 };
