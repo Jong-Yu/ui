@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react';
 import './button.css';
 import { useButton } from './useButton';
 
@@ -6,17 +7,22 @@ export interface ButtonProps {
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
   children?: React.ReactNode;
-  fullWidth?: boolean;
   onClick?: () => void;
+  style?: CSSProperties;
 }
 
 export const Button = (props: ButtonProps) => {
   // hooks
-  const { className, children, onClick } = useButton(props);
+  const { className, onClick } = useButton(props);
 
   return (
-    <button type="button" className={className} onClick={onClick}>
-      {children}
+    <button
+      type="button"
+      className={className}
+      onClick={onClick}
+      style={props.style}
+    >
+      {props.children}
     </button>
   );
 };

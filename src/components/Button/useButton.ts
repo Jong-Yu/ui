@@ -3,10 +3,6 @@ import { ButtonProps } from './Button';
 
 export function useButton(props: ButtonProps) {
   // var
-  const onClick = () => {
-    props.onClick && !props.disabled && props.onClick();
-  };
-
   const className = useMemo(() => {
     const names: string[] = ['button'];
 
@@ -26,16 +22,16 @@ export function useButton(props: ButtonProps) {
       names.push('button--disabled');
     }
 
-    if (props.fullWidth) {
-      names.push('button--full-width');
-    }
-
     return names.join(' ');
   }, [props]);
+  // handler
+  const onClick = () => {
+    if (props.disabled) return;
+    props.onClick && props.onClick();
+  };
 
   return {
-    onClick,
     className,
-    children: props.children,
+    onClick,
   };
 }
