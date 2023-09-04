@@ -17,6 +17,14 @@ const meta = {
       },
       control: 'text',
     },
+    label: {
+      type: { name: 'string', required: false },
+      description: '입력 폼의 라벨',
+      table: {
+        type: { summary: 'string' },
+      },
+      control: 'text',
+    },
     disabled: {
       type: { name: 'boolean', required: false },
       description: '입력 폼 비활성화 여부',
@@ -45,6 +53,7 @@ const meta = {
   },
   args: {
     value: undefined,
+    label: undefined,
     disabled: undefined,
     style: undefined,
     onChange: undefined,
@@ -60,11 +69,13 @@ export const Primary: Story = {
 
 export const UseValue: Story = {
   args: {
-    disabled: false,
-    style: {},
     value: 'use value',
     onChange: () => {},
   },
+};
+
+export const UseLabel: Story = {
+  args: { label: '라벨' },
 };
 
 export const Disabled: Story = {

@@ -7,6 +7,33 @@ input {
   cursor: pointer;
 }
 
+span {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  box-sizing: border-box;
+  cursor: default;
+  user-select: none;
+}
+
+.text-field--container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.text-field--label {
+  color: #8e8e93;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.text-field--label.text-field--focused {
+  color: #00c78b;
+}
+
 .text-field {
   display: inline-block;
   padding: 6px 5px;

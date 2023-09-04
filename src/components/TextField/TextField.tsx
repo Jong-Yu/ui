@@ -4,6 +4,7 @@ import './textField.css';
 
 export interface TextFieldProps {
   value?: string;
+  label?: string;
   disabled?: boolean;
   style?: CSSProperties | undefined;
   autoFocus?: boolean;
@@ -17,6 +18,15 @@ export const TextField = (props: TextFieldProps) => {
 
   return (
     <div className="text-field--container">
+      {props.label && (
+        <span
+          className={`text-field--label${
+            isFocus ? ' text-field--focused' : ''
+          }`}
+        >
+          {props.label}
+        </span>
+      )}
       <input
         ref={ref}
         value={props.value}
