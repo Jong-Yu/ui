@@ -1,0 +1,37 @@
+input {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.text-field {
+  display: inline-block;
+  padding: 6px 5px;
+  font-size: 18px;
+  border-bottom: 2px solid #00000033;
+}
+
+.text-field:focus {
+  outline: none;
+}
+
+.text-field--underline {
+  position: relative;
+  height: 2px; /* 밑줄의 높이 조절 */
+  top: -2px;
+  background-color: #00c78b; /* 초기 색상 설정 */
+  width: 0%; /* 초기 너비를 0으로 설정하여 숨김 */
+  transition: width 0.3s ease; /* 애니메이션 효과 설정 */
+}
+
+.text-field--underline.text-field--focused {
+  width: 100%; /* 포커스가 되면 너비를 100%로 설정하여 보여줌 */
+}
+
+.text-field--disabled {
+  cursor: default;
+  opacity: 0.5;
+}
