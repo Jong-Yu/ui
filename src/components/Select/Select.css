@@ -1,0 +1,96 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div,
+ul {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+.select--container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.select--label {
+  color: #8e8e93;
+  font-size: 14px;
+  font-weight: 900;
+  cursor: default;
+  user-select: none;
+}
+
+.select--label.select--opened {
+  color: #00c78b;
+}
+
+.select--text-field {
+  display: inline-block;
+  padding: 8px 12px;
+  font-size: 18px;
+  border-bottom: 2px solid #00000033;
+  min-width: 150px;
+  min-height: 40px;
+}
+
+.select--text-field.select--text-field--disabled {
+  cursor: default;
+  color: #8e8e93;
+  user-select: none;
+}
+
+.select--underline {
+  position: relative;
+  height: 2px; /* 밑줄의 높이 조절 */
+  top: -2px;
+  background-color: #00c78b; /* 초기 색상 설정 */
+  width: 0%; /* 초기 너비를 0으로 설정하여 숨김 */
+  transition: width 0.3s ease; /* 애니메이션 효과 설정 */
+}
+
+.select--underline.select--opened {
+  width: 100%; /* 포커스가 되면 너비를 100%로 설정하여 보여줌 */
+}
+
+.select--options-container {
+  position: absolute;
+  top: 100%; /* Select 컴포넌트 아래에 표시됩니다. */
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #d8d9dd;
+  border-radius: 5px;
+  min-width: 150px;
+  overflow-y: auto; /* 내용이 넘칠 경우 스크롤 표시 */
+  margin-top: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+.select--options-container.select--opened {
+  display: block;
+}
+
+.select--options {
+  padding: 8px 12px;
+  font-size: 15px;
+}
+
+.select--options:hover {
+  background-color: #f6f6f6;
+}
+
+.select--options.selected {
+  background-color: #eee;
+}
