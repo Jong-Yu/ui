@@ -34,6 +34,14 @@ const meta = {
       },
       control: 'boolean',
     },
+    autoFocus: {
+      type: { name: 'boolean', required: false },
+      description: '입력 폼 자동 포커스 여부',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
     style: {
       type: { name: 'object', value: {}, required: false },
       description: '입력 폼 스타일',
@@ -54,6 +62,7 @@ const meta = {
   args: {
     value: undefined,
     label: undefined,
+    autoFocus: undefined,
     disabled: undefined,
     style: undefined,
     onChange: undefined,
@@ -76,6 +85,14 @@ export const UseValue: Story = {
 
 export const UseLabel: Story = {
   args: { label: '라벨' },
+};
+
+export const autoFocus: Story = {
+  args: {
+    value: 'Auto Focus',
+    autoFocus: true,
+    onChange: () => {},
+  },
 };
 
 export const Disabled: Story = {
