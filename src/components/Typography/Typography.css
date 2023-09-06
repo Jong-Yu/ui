@@ -1,0 +1,15 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.typography-left {
+  text-align: left;
+}
+
+.typography-center {
+  text-align: center;
+}
+
+.typography-right {
+  text-align: right;
+}
