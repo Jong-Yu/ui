@@ -2,14 +2,35 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.typography-left {
-  text-align: left;
+h1,
+span {
+  margin: 0;
+  padding: 0;
 }
 
-.typography-center {
-  text-align: center;
+.typography-title {
+  font-size: 24px;
+  font-weight: bold;
+  font-style: 'normal';
 }
 
-.typography-right {
-  text-align: right;
+.typography-contents {
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.typography-caption {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  color: #999999;
+}
+
+.typography-bold {
+  font-weight: bold;
+}
+
+.typography-italic {
+  font-style: italic;
 }

@@ -12,33 +12,36 @@ const meta = {
     variant: {
       type: {
         name: 'enum',
-        value: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'body'],
+        value: ['title', 'contents', 'caption'],
         required: true,
       },
       description: '문자 Tag',
       table: {
-        type: { summary: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'body'] },
+        type: { summary: ['title', 'contents', 'caption'] },
         defaultValue: { summary: 'body' },
       },
       control: {
         type: 'select',
-        options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'body'],
+        options: ['title', 'contents', 'caption'],
       },
     },
-    align: {
-      type: {
-        name: 'enum',
-        value: ['left', 'center', 'right'],
-        required: false,
-      },
-      description: '정렬',
+    bold: {
+      type: { name: 'boolean', required: false },
+      description: '볼드체',
       table: {
-        type: { summary: ['left', 'center', 'right'] },
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
       },
-      control: {
-        type: 'select',
-        options: ['left', 'center', 'right'],
+      control: 'boolean',
+    },
+    italic: {
+      type: { name: 'boolean', required: false },
+      description: '이탤릭체',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
       },
+      control: 'boolean',
     },
     children: {
       type: { name: 'string', required: true },
@@ -58,9 +61,8 @@ const meta = {
     },
   },
   args: {
-    variant: 'body',
+    variant: 'contents',
     children: 'Body',
-    align: undefined,
     style: undefined,
   },
 } satisfies Meta<typeof Typography>;
@@ -68,75 +70,39 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const H1: Story = {
+export const Title: Story = {
   args: {
-    variant: 'h1',
-    children: 'Heading 1',
-  },
-};
-
-export const H2: Story = {
-  args: {
-    variant: 'h2',
-    children: 'Heading 2',
-  },
-};
-
-export const H3: Story = {
-  args: {
-    variant: 'h3',
-    children: 'Heading 3',
-  },
-};
-
-export const H4: Story = {
-  args: {
-    variant: 'h4',
-    children: 'Heading 4',
-  },
-};
-
-export const H5: Story = {
-  args: {
-    variant: 'h5',
-    children: 'Heading 5',
-  },
-};
-
-export const H6: Story = {
-  args: {
-    variant: 'h6',
-    children: 'Heading 6',
+    variant: 'title',
+    children: 'Title',
   },
 };
 
 export const Body: Story = {
   args: {
-    variant: 'body',
+    variant: 'contents',
     children: 'Body',
   },
 };
 
-export const Left: Story = {
+export const Caption: Story = {
   args: {
-    variant: 'body',
-    children: 'Left',
-    align: 'left',
+    variant: 'caption',
+    children: 'Caption',
   },
 };
 
-export const Center: Story = {
+export const Bold: Story = {
   args: {
-    variant: 'body',
-    children: 'Center',
-    align: 'center',
+    variant: 'contents',
+    children: 'Body',
+    bold: true,
   },
 };
 
-export const Right: Story = {
+export const Italic: Story = {
   args: {
-    variant: 'body',
-    children: 'Right',
-    align: 'right',
+    variant: 'contents',
+    children: 'Body',
+    italic: true,
   },
 };

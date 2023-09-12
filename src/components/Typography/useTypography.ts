@@ -12,9 +12,9 @@ export function useTypography(props: TypographyProps) {
       names.push('typography-body');
     }
 
-    if (props.align) {
-      names.push(`typography-align-${props.align}`);
-    }
+    if (props.bold) names.push('typography-bold');
+
+    if (props.italic) names.push('typography-italic');
 
     return names.join(' ');
   }, [props]);
